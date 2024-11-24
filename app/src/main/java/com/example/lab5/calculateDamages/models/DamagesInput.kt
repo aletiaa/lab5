@@ -1,6 +1,6 @@
 package com.example.lab5.calculateDamages.models
 
-data class DamagesInputModel(
+data class DamagesInput(
     val failureFrequency: Double = 0.01,
     val restoreTile: Double = 45.0,
     val Pm: Double = 5.12,

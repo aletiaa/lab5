@@ -9,13 +9,13 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.livedata.observeAsState
-import com.example.lab5.calculateDamages.models.DamagesInputModel
-import com.example.lab5.calculateDamages.models.DamagesResulModel
+import com.example.lab5.calculateDamages.models.DamagesInput
+import com.example.lab5.calculateDamages.models.DamagesResult
 
 @Composable
 fun DamagesView(viewModel: DamagesViewModel = viewModel()) {
-    val inputModel by viewModel.inputModel.observeAsState(DamagesInputModel())
-    val resultModel by viewModel.resulModel.observeAsState(DamagesResulModel())
+    val inputModel by viewModel.inputModel.observeAsState(DamagesInput())
+    val resultModel by viewModel.resulModel.observeAsState(DamagesResult())
     var showDialog by remember { mutableStateOf(false) }
 
     Column(modifier = Modifier.padding(16.dp)) {

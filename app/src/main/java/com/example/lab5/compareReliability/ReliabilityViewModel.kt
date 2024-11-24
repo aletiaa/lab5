@@ -2,17 +2,17 @@ package com.example.lab5.compareReliability
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.lab5.compareReliability.models.ReliabilityInputModel
-import com.example.lab5.compareReliability.models.ReliabilityResultModel
+import com.example.lab5.compareReliability.models.ReliabilityInput
+import com.example.lab5.compareReliability.models.ReliabilityResult
 
 class ReliabilityViewModel : ViewModel() {
     private val reliabilityInputData =
-        MutableLiveData(ReliabilityInputModel())
+        MutableLiveData(ReliabilityInput())
 
-    private val reliabilityResultData = MutableLiveData(ReliabilityResultModel())
+    private val reliabilityResultData = MutableLiveData(ReliabilityResult())
 
-    val inputData: MutableLiveData<ReliabilityInputModel> = reliabilityInputData
-    val resultData: MutableLiveData<ReliabilityResultModel> = reliabilityResultData
+    val inputData: MutableLiveData<ReliabilityInput> = reliabilityInputData
+    val resultData: MutableLiveData<ReliabilityResult> = reliabilityResultData
 
     fun calculateResult() {
         val failureFrequency = calculateFailureFrequency()
@@ -23,7 +23,7 @@ class ReliabilityViewModel : ViewModel() {
             calculateFailureFrequencyForTwoSys(failureFrequency, emergencyCoeff, planCoeff)
         val failureFrequencyWithSectionSwitcher =
             failureFreqForTwoSys + inputData.value!!.failureFreqSectionSwitcher
-        resultData.value = ReliabilityResultModel(
+        resultData.value = ReliabilityResult(
             failureFrequency,
             averageRecoveryDuration,
             emergencyCoeff,

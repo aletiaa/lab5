@@ -1,6 +1,6 @@
 package com.example.lab5.compareReliability.models
 
-data class ReliabilityResultModel(
+data class ReliabilityResult(
     val failureFrequency: Double = 0.0,
     val averageRecoveryDuration: Double = 0.0,
     val emergencyCoeff: Double = 0.0,

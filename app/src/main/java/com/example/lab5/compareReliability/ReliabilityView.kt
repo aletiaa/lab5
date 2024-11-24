@@ -12,16 +12,16 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.lab5.compareReliability.models.ReliabilityInputModel
-import com.example.lab5.compareReliability.models.ReliabilityResultModel
+import com.example.lab5.compareReliability.models.ReliabilityInput
+import com.example.lab5.compareReliability.models.ReliabilityResult
 import com.example.lab5.ui.theme.Lab5Theme
 import androidx.compose.runtime.livedata.observeAsState
 
 
 @Composable
 fun ReliabilityView(viewModel: ReliabilityViewModel = viewModel()) {
-    val inputData by viewModel.inputData.observeAsState(ReliabilityInputModel())
-    val resultData by viewModel.resultData.observeAsState(ReliabilityResultModel())
+    val inputData by viewModel.inputData.observeAsState(ReliabilityInput())
+    val resultData by viewModel.resultData.observeAsState(ReliabilityResult())
     val openDialog = remember { mutableStateOf(false) }
 
     Scaffold(modifier = Modifier.fillMaxSize()) { paddingValues ->
@@ -71,7 +71,7 @@ fun ReliabilityView(viewModel: ReliabilityViewModel = viewModel()) {
                         viewModel.inputData.value =
                             inputData.copy(inputSwitch = it.toDoubleOrNull() ?: 0.0)
                     },
-                    label = { Text("Input Switch") },
+                    label = { Text( "Input Switch") },
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(modifier = Modifier.height(8.dp))

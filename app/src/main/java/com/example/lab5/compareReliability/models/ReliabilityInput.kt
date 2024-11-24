@@ -1,6 +1,6 @@
 package com.example.lab5.compareReliability.models
 
-data class ReliabilityInputModel(
+data class ReliabilityInput(
     val electricGasSwitch: Double = 0.01,
     val pl110: Double = 0.07,
     val transformer: Double = 0.015,

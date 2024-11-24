@@ -2,43 +2,43 @@ package com.example.lab5.calculateDamages
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.lab5.calculateDamages.models.DamagesInputModel
-import com.example.lab5.calculateDamages.models.DamagesResulModel
+import com.example.lab5.calculateDamages.models.DamagesInput
+import com.example.lab5.calculateDamages.models.DamagesResult
 
 
 class DamagesViewModel : ViewModel() {
-    private val damagesInputModel = MutableLiveData(DamagesInputModel())
-    val inputModel = damagesInputModel
+    private val damagesInput = MutableLiveData(DamagesInput())
+    val inputModel = damagesInput
 
-    private val damagesResulModel = MutableLiveData(DamagesResulModel())
-    val resulModel = damagesResulModel
+    private val damagesResult = MutableLiveData(DamagesResult())
+    val resulModel = damagesResult
 
     fun setFailureFrequency(value: Double) {
-        damagesInputModel.value = damagesInputModel.value?.copy(failureFrequency = value)
+        damagesInput.value = damagesInput.value?.copy(failureFrequency = value)
     }
 
     fun setRestoreTile(value: Double) {
-        damagesInputModel.value = damagesInputModel.value?.copy(restoreTile = value)
+        damagesInput.value = damagesInput.value?.copy(restoreTile = value)
     }
 
     fun setPm(value: Double) {
-        damagesInputModel.value = damagesInputModel.value?.copy(Pm = value)
+        damagesInput.value = damagesInput.value?.copy(Pm = value)
     }
 
     fun setTm(value: Double) {
-        damagesInputModel.value = damagesInputModel.value?.copy(Tm = value)
+        damagesInput.value = damagesInput.value?.copy(Tm = value)
     }
 
     fun setKp(value: Double) {
-        damagesInputModel.value = damagesInputModel.value?.copy(kp = value)
+        damagesInput.value = damagesInput.value?.copy(kp = value)
     }
 
     fun setZa(value: Double) {
-        damagesInputModel.value = damagesInputModel.value?.copy(Za = value)
+        damagesInput.value = damagesInput.value?.copy(Za = value)
     }
 
     fun setZp(value: Double) {
-        damagesInputModel.value = damagesInputModel.value?.copy(Zp = value)
+        damagesInput.value = damagesInput.value?.copy(Zp = value)
     }
 
     fun calculateResult() {
@@ -46,6 +46,6 @@ class DamagesViewModel : ViewModel() {
         val MWa = input.failureFrequency * input.restoreTile * input.Pm * input.Tm
         val MWp = input.kp * input.Pm * input.Tm
         val Mz = input.Za * MWa + input.Zp * MWp
-        resulModel.value = DamagesResulModel(MWa, MWp, Mz)
+        resulModel.value = DamagesResult(MWa, MWp, Mz)
     }
 }
